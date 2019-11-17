@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, system.Generics.Defaults;
 type
   TArrayString = array of string;
 type
@@ -20,8 +20,8 @@ type
     btnContar_Nomes: TButton;
     btnSair: TButton;
     btnExibir_nomes: TButton;
-    lstExibir_nomes: TListBox;
     pnlBase: TPanel;
+    Lista: TMemo;
     procedure btnSairClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnExibir_nomesClick(Sender: TObject);
@@ -41,6 +41,9 @@ var
   Exercicio1: TExercicio1;
 
 implementation
+
+uses
+  System.Generics.Collections;
   type
     Fpessoa = record
       nome : String[35];
@@ -52,22 +55,29 @@ implementation
 
 {$R *.dfm}
 procedure TExercicio1.btnExibir_nomesClick(Sender: TObject);
+var
+  PercorreArray: integer;
+  temp: TArrayString;
 begin
-  lstExibir_nomes.Visible := true;
+  Lista.Clear;
+  temp:= vNomes;
+  TArray.Sort<String>(temp, TStringComparer.Ordinal);//Ordena o array em ordem alfabética
+  for PercorreArray:=0 to i -1 do
+  begin
+    Lista.lines.Add(temp[PercorreArray]);
+  end;
+  temp:= nil;
 end;
 
 procedure TExercicio1.btnInserirClick(Sender: TObject);
 begin
-  if edtNome.Text <> '' then
+  if EdtNome.Text<>'' then
   begin
-    x.nome := edtNome.Text;
-    Inc(n);
-    SetLength(pessoa, n);
-    pessoa[n -1] := x;
-    Limparcampo;
-
-    lstExibir_nomes.AddItem(x.nome, TObject(edtNome));
-    lstExibir_nomes.Visible := false;
+    SetLength(vNomes, i + 1);
+    vNomes[i] := (EdtNome.text);
+    ShowMessage('Inserido!!!');
+    i:= i + 1;
+    EdtNome.Clear;
   end
   else
   begin

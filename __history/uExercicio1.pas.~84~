@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
-
+type
+  TArrayString = array of string;
 type
   TExercicio1 = class(TForm)
     lblNome: TLabel;
@@ -30,6 +31,8 @@ type
 
   private
     { Private declarations }
+    i : integer;
+    vNomes : TArrayString;
   public
     { Public declarations }
   end;
@@ -46,23 +49,22 @@ implementation
     pessoa: array of Fpessoa;
      x: Fpessoa;
      n : integer = 0;
+
 {$R *.dfm}
 procedure TExercicio1.btnExibir_nomesClick(Sender: TObject);
 begin
-  lstExibir_nomes.Visible;
+  lstExibir_nomes.Visible := true;
 end;
 
 procedure TExercicio1.btnInserirClick(Sender: TObject);
 begin
-  if edtNome.Text <> '' then
+  if EdtNome.Text<>'' then
   begin
-    x.nome := edtNome.Text;
-    Inc(n);
-    SetLength(pessoa, n);
-    pessoa[n -1] := x;
-    Limparcampo;
-
-    lstExibir_nomes.AddItem(x.nome, TObject(edtNome));
+    SetLength(vNomes, i + 1);
+    vNomes[i] := (EdtNome.text);
+    ShowMessage('Inserido!!!');
+    i:= i + 1;
+    EdtNome.Clear;
   end
   else
   begin
