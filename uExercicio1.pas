@@ -99,7 +99,6 @@ begin
   begin
     SetLength(vNomes, i + 1);
     vNomes[i] := (EdtNome.text);
-    ShowMessage('Inserido!!!');
     i:= i + 1;
     EdtNome.Clear;
   end

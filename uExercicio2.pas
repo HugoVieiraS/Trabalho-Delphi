@@ -36,7 +36,7 @@ end;
     btnSair: TButton;
     procedure btnConverterClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    
+
     
   private
     { Private declarations }
@@ -48,6 +48,9 @@ var
   Exercicio2: TExercicio2;
 
 implementation
+
+uses
+  System.Generics.Defaults;
   
 {$R *.dfm}
 
@@ -98,7 +101,7 @@ begin
     //Adicionar Ordem Alfabetica
   if rdbOrdem_alfabetica.Checked = true then
   begin
-
+    // Colocar ordenação
   end;
 
 end;
