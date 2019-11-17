@@ -5,7 +5,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, StrUtils;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, StrUtils,
+  uExercicio1;
 
 type
 TExportacao = class abstract
@@ -23,19 +24,19 @@ TExportarInvertido = class(TExportaTexto)
 end;
   TExercicio2 = class(TForm)
     pnlExercicio2: TPanel;
-    lstTexto_original: TListBox;
-    lstTexto_Convertido: TListBox;
     lblTexto_original: TLabel;
     lblOpcao_conversao: TLabel;
-    lblTexto_convertido: TLabel;
     rbdInvertido: TRadioButton;
     rdbPrimeira_maiuscula: TRadioButton;
     rdbOrdem_alfabetica: TRadioButton;
     edtConverter: TEdit;
     btnConverter: TButton;
     btnSair: TButton;
-    procedure btnConverterClick(Sender: TObject);
+    lblTexto_convertido: TLabel;
+    memoTexto_Original: TMemo;
+    memoTexto_Convertido: TMemo;
     procedure btnSairClick(Sender: TObject);
+    procedure edtConverterChange(Sender: TObject);
 
     
   private
@@ -50,7 +51,7 @@ var
 implementation
 
 uses
-  System.Generics.Defaults;
+  System.Generics.Defaults, System.Generics.Collections;
   
 {$R *.dfm}
 
@@ -78,39 +79,24 @@ begin
   Result := Str;
 end;
 
-procedure TExercicio2.btnConverterClick(Sender: TObject);
-  var letraMaiuscula : String;
+function Inserir(Str: string): string;
+var
+    i : integer;
+    Textos : TArrayString;
 begin
-
-  if edtConverter.Text = '' then
-  ShowMessage('Insira um nome no campo!!!');
-  //Adicionar no campo original
-  lstTexto_original.Items.Add(edtConverter.Text);
-
-        //Adicionar no texto convertido
-  if rbdInvertido.Checked = true then
+  if edtConverter.Text <> '' then
   begin
-    lstTexto_Convertido.Items.Add(ReverseString(edtConverter.Text));
-  end;
-      //Adicionar primeira Maiuscula
-  if rdbPrimeira_maiuscula.Checked = true then
-  begin
-      letraMaiuscula := PrimeiraLetraMaiscula(edtConverter.Text);
-      lstTexto_Convertido.Items.Add(letraMaiuscula);
-  end;
-    //Adicionar Ordem Alfabetica
-  if rdbOrdem_alfabetica.Checked = true then
-  begin
-    // Colocar ordenação
-  end;
-
+    SetLength(Textos, i + 1);
+    Textos[i] := (edtConverter.Text);
+    i:= i + 1;
+    edtConverter.Clear;
+  end
+  Result := Str;
 end;
 
 procedure TExercicio2.btnSairClick(Sender: TObject);
 begin
  Close;
 end;
-
-
 
 end.

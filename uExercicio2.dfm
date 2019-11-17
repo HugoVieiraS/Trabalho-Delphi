@@ -41,29 +41,13 @@ object Exercicio2: TExercicio2
       Height = 13
       Caption = 'Texto convertido'
     end
-    object lstTexto_original: TListBox
-      Left = 40
-      Top = 56
-      Width = 193
-      Height = 201
-      ItemHeight = 13
-      TabOrder = 0
-    end
-    object lstTexto_Convertido: TListBox
-      Left = 408
-      Top = 56
-      Width = 193
-      Height = 201
-      ItemHeight = 13
-      TabOrder = 1
-    end
     object rbdInvertido: TRadioButton
       Left = 256
       Top = 72
       Width = 113
       Height = 17
       Caption = 'Invertido'
-      TabOrder = 2
+      TabOrder = 0
     end
     object rdbPrimeira_maiuscula: TRadioButton
       Left = 258
@@ -71,7 +55,7 @@ object Exercicio2: TExercicio2
       Width = 113
       Height = 17
       Caption = 'Primeira mai'#250'scula'
-      TabOrder = 3
+      TabOrder = 1
     end
     object rdbOrdem_alfabetica: TRadioButton
       Left = 258
@@ -79,14 +63,15 @@ object Exercicio2: TExercicio2
       Width = 113
       Height = 17
       Caption = 'Ordem alfab'#233'tica'
-      TabOrder = 4
+      TabOrder = 2
     end
     object edtConverter: TEdit
       Left = 239
       Top = 202
       Width = 163
       Height = 21
-      TabOrder = 5
+      TabOrder = 3
+      OnChange = edtConverterChange
     end
     object btnConverter: TButton
       Left = 256
@@ -94,8 +79,7 @@ object Exercicio2: TExercicio2
       Width = 129
       Height = 25
       Caption = 'Converter'
-      TabOrder = 6
-      OnClick = btnConverterClick
+      TabOrder = 4
     end
     object btnSair: TButton
       Left = 282
@@ -103,8 +87,26 @@ object Exercicio2: TExercicio2
       Width = 75
       Height = 25
       Caption = 'Sair'
-      TabOrder = 7
+      TabOrder = 5
       OnClick = btnSairClick
+    end
+    object memoTexto_Original: TMemo
+      Left = 24
+      Top = 56
+      Width = 185
+      Height = 201
+      Lines.Strings = (
+        'memoTexto_Original')
+      TabOrder = 6
+    end
+    object memoTexto_Convertido: TMemo
+      Left = 408
+      Top = 56
+      Width = 185
+      Height = 201
+      Lines.Strings = (
+        'memoTexto_Convertido')
+      TabOrder = 7
     end
   end
 end
