@@ -121,19 +121,23 @@ begin
   edtNome.SetFocus;
 end;
 
-procedure TExercicio1.btnRemover_ultimoClick(Sender: TObject);
-begin
-     ShowMessage(vNomes[high(vNomes)]+ ' foi removido da lista');
-     DeleteArrayIndex(vNomes, high(vNomes));
-     i:=i-1;
-     btnRemover_ultimoClick(Sender);
-end;
 procedure TExercicio1.btnRemover_primeiroClick(Sender: TObject);
 begin
       ShowMessage(vNomes[0]+ ' foi removido da lista');
       DeleteArrayIndex(vNomes, 0);
       i:=i-1;
+      Exit;
       btnRemover_primeiroClick(Sender);
+
+end;
+
+procedure TExercicio1.btnRemover_ultimoClick(Sender: TObject);
+begin
+     ShowMessage(vNomes[high(vNomes)]+ ' foi removido da lista');
+     DeleteArrayIndex(vNomes, high(vNomes));
+     i:=i-1;
+     Exit;
+     btnRemover_ultimoClick(Sender);
 end;
 
 end.

@@ -27,6 +27,8 @@ type
     procedure btnExibir_nomesClick(Sender: TObject);
     procedure Limparcampo;
     procedure btnRemover_primeiroClick(Sender: TObject);
+    procedure btnContar_NomesClick(Sender: TObject);
+    procedure btnRemover_ultimoClick(Sender: TObject);
 
 
   private
@@ -54,6 +56,28 @@ uses
      n : integer = 0;
 
 {$R *.dfm}
+procedure DeleteArrayIndex(var X: TArrayString; Index: Integer);
+begin
+  if Index > High(X) then Exit;
+  if Index < Low(X) then Exit;
+  if Index = High(X) then
+
+  begin
+    SetLength(X, Length(X) - 1);
+    Exit;
+  end;
+
+  Finalize(X[Index]);
+  System.Move(X[Index +1], X[Index],
+  (Length(X) - Index -1) * SizeOf(string) + 1);
+  SetLength(X, Length(X) - 1);
+end;
+
+procedure TExercicio1.btnContar_NomesClick(Sender: TObject);
+begin
+  ShowMessage(IntToStr(length(vNomes)));
+end;
+
 procedure TExercicio1.btnExibir_nomesClick(Sender: TObject);
 var
   PercorreArray: integer;
@@ -61,7 +85,7 @@ var
 begin
   Lista.Clear;
   temp:= vNomes;
-  TArray.Sort<String>(temp, TStringComparer.Ordinal);//Ordena o array em ordem alfabética
+  TArray.Sort<String>(temp, TStringComparer.Ordinal);
   for PercorreArray:=0 to i -1 do
   begin
     Lista.lines.Add(temp[PercorreArray]);
@@ -86,11 +110,6 @@ begin
 
 end;
 
-procedure TExercicio1.btnRemover_primeiroClick(Sender: TObject);
-begin
-   //
-end;
-
 procedure TExercicio1.btnSairClick(Sender: TObject);
 begin
   Close;
@@ -100,6 +119,25 @@ procedure TExercicio1.LimparCampo;
 begin
   edtNome.Clear;
   edtNome.SetFocus;
+end;
+
+procedure TExercicio1.btnRemover_primeiroClick(Sender: TObject);
+begin
+      ShowMessage(vNomes[0]+ ' foi removido da lista');
+      DeleteArrayIndex(vNomes, 0);
+      i:=i-1;
+      break;
+      btnRemover_primeiroClick(Sender);
+
+end;
+
+procedure TExercicio1.btnRemover_ultimoClick(Sender: TObject);
+begin
+     ShowMessage(vNomes[high(vNomes)]+ ' foi removido da lista');
+     DeleteArrayIndex(vNomes, high(vNomes));
+     i:=i-1;
+     btnRemover_ultimoClick(Sender);
+     break;
 end;
 
 end.
