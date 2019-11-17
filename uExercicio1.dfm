@@ -64,6 +64,7 @@ object Exercicio1: TExercicio1
       Height = 25
       Caption = 'Remover '#250'ltimo inserido'
       TabOrder = 1
+      OnClick = btnRemover_ultimoClick
     end
     object btnSair: TButton
       Left = 61
@@ -88,6 +89,7 @@ object Exercicio1: TExercicio1
       Height = 25
       Caption = 'Contar nomes'
       TabOrder = 4
+      OnClick = btnContar_NomesClick
     end
     object btnExibir_nomes: TButton
       Left = 376

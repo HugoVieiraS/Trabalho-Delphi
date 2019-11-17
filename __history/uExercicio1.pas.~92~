@@ -78,6 +78,7 @@ begin
   ShowMessage(IntToStr(length(vNomes)));
 end;
 
+
 procedure TExercicio1.btnExibir_nomesClick(Sender: TObject);
 var
   PercorreArray: integer;
@@ -85,7 +86,7 @@ var
 begin
   Lista.Clear;
   temp:= vNomes;
-  TArray.Sort<String>(temp, TStringComparer.Ordinal);
+  TArray.Sort<String>(temp, TStringComparer.Ordinal);//Ordena o array em ordem alfabética
   for PercorreArray:=0 to i -1 do
   begin
     Lista.lines.Add(temp[PercorreArray]);

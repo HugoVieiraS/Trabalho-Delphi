@@ -55,6 +55,7 @@ object Exercicio1: TExercicio1
       Height = 25
       Caption = 'Remover primeiro inserido'
       TabOrder = 0
+      OnClick = btnRemover_primeiroClick
     end
     object btnRemover_ultimo: TButton
       Left = 61
@@ -80,21 +81,14 @@ object Exercicio1: TExercicio1
       Height = 21
       TabOrder = 3
     end
-    object lstExibir_nomes: TListBox
-      Left = 344
-      Top = 115
-      Width = 185
-      Height = 147
-      ItemHeight = 13
-      TabOrder = 4
-    end
     object btnContar_Nomes: TButton
       Left = 61
       Top = 206
       Width = 226
       Height = 25
       Caption = 'Contar nomes'
-      TabOrder = 5
+      TabOrder = 4
+      OnClick = btnContar_NomesClick
     end
     object btnExibir_nomes: TButton
       Left = 376
@@ -102,7 +96,8 @@ object Exercicio1: TExercicio1
       Width = 121
       Height = 25
       Caption = 'Exibir nomes'
-      TabOrder = 6
+      TabOrder = 5
+      OnClick = btnExibir_nomesClick
     end
     object btnInserir: TButton
       Left = 212
@@ -110,6 +105,16 @@ object Exercicio1: TExercicio1
       Width = 75
       Height = 25
       Caption = 'Inserir'
+      TabOrder = 6
+      OnClick = btnInserirClick
+    end
+    object Lista: TMemo
+      Left = 355
+      Top = 136
+      Width = 174
+      Height = 126
+      Lines.Strings = (
+        'Lista')
       TabOrder = 7
     end
   end
