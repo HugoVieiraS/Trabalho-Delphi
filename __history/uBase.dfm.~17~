@@ -1,0 +1,62 @@
+object Base: TBase
+  Left = 0
+  Top = 0
+  Caption = 'Menu'
+  ClientHeight = 417
+  ClientWidth = 725
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlBase: TPanel
+    Left = 0
+    Top = 0
+    Width = 725
+    Height = 417
+    Align = alClient
+    TabOrder = 0
+    ExplicitWidth = 448
+    ExplicitHeight = 234
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    Top = 40
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+      OnClick = Sair1Click
+    end
+    object Exercicios1: TMenuItem
+      Caption = 'Exercicios'
+      object Exercicio01: TMenuItem
+        Caption = 'Exercicio 1'
+        OnClick = Exercicio01Click
+      end
+      object Exercicio02: TMenuItem
+        Caption = 'Exercicio 2'
+        OnClick = Exercicio02Click
+      end
+      object Exercicio03: TMenuItem
+        Caption = 'Exercicio 3'
+      end
+      object Exercicio04: TMenuItem
+        Caption = 'Exercicio 4'
+      end
+      object Exercicio05: TMenuItem
+        Caption = 'Exercicio 5'
+      end
+      object Exercicio06: TMenuItem
+        Caption = 'Exercicio 6'
+      end
+      object Exercicio07: TMenuItem
+        Caption = 'Exercicio 7'
+      end
+    end
+  end
+end

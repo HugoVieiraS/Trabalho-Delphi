@@ -1,0 +1,25 @@
+unit uExercicio7;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TExercicio7 = class(TForm)
+    pnlExercicio7: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Exercicio7: TExercicio7;
+
+implementation
+
+{$R *.dfm}
+
+end.

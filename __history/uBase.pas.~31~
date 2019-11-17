@@ -1,0 +1,69 @@
+unit uBase;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,uExercicio1,uExercicio2;
+
+type
+  TBase = class(TForm)
+    pnlBase: TPanel;
+    MainMenu1: TMainMenu;
+    Sair1: TMenuItem;
+    Exercicios1: TMenuItem;
+    Exercicio01: TMenuItem;
+    Exercicio02: TMenuItem;
+    Exercicio03: TMenuItem;
+    Exercicio04: TMenuItem;
+    Exercicio05: TMenuItem;
+    Exercicio06: TMenuItem;
+    Exercicio07: TMenuItem;
+    procedure Exercicio01Click(Sender: TObject);
+    procedure Exercicio02Click(Sender: TObject);
+    procedure Sair1Click(Sender: TObject);
+    procedure Exercicio04Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Base: TBase;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TBase.Sair1Click(Sender: TObject);
+begin
+  Base.Close;
+end;
+
+procedure TBase.Exercicio01Click(Sender: TObject);
+var
+  Ex01 : TExercicio1;
+begin
+  Ex01 := TExercicio1.create(Self);
+  EX01.ShowModal;
+end;
+
+procedure TBase.Exercicio02Click(Sender: TObject);
+var
+  Ex02 : TExercicio2;
+begin
+  Ex02 := TExercicio2.create(Self);
+  Ex02.ShowModal;
+end;
+
+procedure TBase.Exercicio04Click(Sender: TObject);
+var
+  Ex04 : TExercicio4;
+begin
+  Ex04 := TExercicio4.create(Self);
+  Ex04.ShowModal;
+end;
+
+end.

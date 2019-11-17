@@ -1,0 +1,18 @@
+program Trabalho;
+
+uses
+  Vcl.Forms,
+  uBase in 'uBase.pas' {Form2},
+  uExercicio1 in 'uExercicio1.pas' {Exercicio1},
+  uExercicio2 in 'uExercicio2.pas' {Form3};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TExercicio1, Exercicio1);
+  Application.CreateForm(TForm3, Form3);
+  Application.Run;
+end.
