@@ -5,7 +5,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, StrUtils;
 
 type
 TExportacao = class abstract
@@ -54,10 +54,27 @@ implementation
  //TESTE
 procedure TExercicio2.btnConverterClick(Sender: TObject);
 begin
+
   if edtConverter.Text = '' then
-   ShowMessage('Insira um nome no campo!!!');
-    //insere o nome no ListBox
-   lstTexto_original.Items.Add(edtConverter.Text);
+  ShowMessage('Insira um nome no campo!!!');
+  //Adicionar no campo original
+  lstTexto_original.Items.Add(edtConverter.Text);
+
+        //Adicionar no texto convertido
+  if rbdInvertido.Checked = true then
+  begin
+    lstTexto_Convertido.Items.Add(ReverseString(edtConverter.Text));
+  end;
+      //Adicionar primeira Maiuscula
+  if rdbPrimeira_maiuscula.Checked = true then
+  begin
+
+  end;
+    //Adicionar Ordem Alfabetica
+  if rdbOrdem_alfabetica.Checked = true then
+  begin
+
+  end;
 
 end;
 
