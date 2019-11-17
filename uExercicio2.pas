@@ -52,7 +52,31 @@ implementation
 {$R *.dfm}
 
  //TESTE
+ function PrimeiraLetraMaiscula(Str: string): string;
+var
+  i: integer;
+  esp: boolean;
+begin
+  str := LowerCase(Trim(str));
+  for i := 1 to Length(str) do
+  begin
+    if i = 1 then
+      str[i] := UpCase(str[i])
+    else
+      begin
+        if i <> Length(str) then
+        begin
+          esp := (str[i] = ' ');
+          if esp then
+            str[i+1] := UpCase(str[i+1]);
+        end;
+      end;
+  end;
+  Result := Str;
+end;
+
 procedure TExercicio2.btnConverterClick(Sender: TObject);
+  var letraMaiuscula : String;
 begin
 
   if edtConverter.Text = '' then
@@ -68,7 +92,8 @@ begin
       //Adicionar primeira Maiuscula
   if rdbPrimeira_maiuscula.Checked = true then
   begin
-
+      letraMaiuscula := PrimeiraLetraMaiscula(edtConverter.Text);
+      lstTexto_Convertido.Items.Add(letraMaiuscula);
   end;
     //Adicionar Ordem Alfabetica
   if rdbOrdem_alfabetica.Checked = true then
@@ -82,5 +107,7 @@ procedure TExercicio2.btnSairClick(Sender: TObject);
 begin
  Close;
 end;
+
+
 
 end.
